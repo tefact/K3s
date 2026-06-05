@@ -18,4 +18,3 @@ EXPOSE 5000
 
 # Jalankan pakai gunicorn (production-grade WSGI server)
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "main:app"]
-
