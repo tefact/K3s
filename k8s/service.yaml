@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: workshop-app
+spec:
+  # LoadBalancer: Klipper ServiceLB K3s (NodePort 30080 juga tersedia)
+  # Akses via Ingress: http://<EC2-IP>     (port 80, via Traefik)
+  # Akses via NodePort: http://<EC2-IP>:30080
+  type: LoadBalancer
+  selector:
+    app: workshop-app
+  ports:
+    - protocol: TCP
+      port: 80          # port di dalam cluster
+      targetPort: 5000  # port container Flask
+
+

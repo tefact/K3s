@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: workshop-app
+  annotations:
+    # Traefik (built-in K3s) akan handle routing ini
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+spec:
+  rules:
+    - http:
+        # Tanpa field "host" = tangkap semua HTTP traffic ke port 80
+        # App bisa diakses via http://<EC2-IP> langsung
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: workshop-app
+                port:
+                  number: 80
