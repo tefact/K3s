@@ -68,7 +68,7 @@ ssh -i workshop.pem ubuntu@<EC2-PUBLIC-IP>
 ### STEP 2 — Clone Repo Workshop
 
 ```bash
-git clone https://github.com/Deri-Nugroho/K3s.git
+git clone https://github.com/tefact/K3s.git
 cd K3s
 ls
 ```
